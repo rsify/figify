@@ -56,7 +56,7 @@ module.exports = file => {
 		// script
 		const scriptContent = tagContent('script')
 		const transformed = babel.transform(scriptContent, {
-			presets: 'es2015'
+			presets: require('babel-preset-es2015')
 		})
 		this.push(transformed.code)
 
