@@ -3,11 +3,14 @@ const path = require('path')
 const pug = require('pug')
 const through = require('through2')
 
+const nameGen = require('./util/nameGen')
+
 const EXTENSIONS = ['.fig', '.pug']
 
 module.exports = file => {
 	const parsed = path.parse(file)
 	const extension = parsed.ext
+	const baseName = parsed.name
 
 	if (EXTENSIONS.indexOf(extension) === -1) return through()
 
@@ -59,6 +62,9 @@ module.exports = file => {
 			presets: require('babel-preset-es2015')
 		})
 		this.push(transformed.code)
+
+		// name
+		this.push(genExport('name', nameGen(baseName)))
 
 		next()
 	})
