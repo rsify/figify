@@ -1,6 +1,8 @@
 const babel = require('babel-core')
+const conv = require('convert-source-map')
 const path = require('path')
 const pug = require('pug')
+const sourceMap = require('source-map')
 const through = require('through2')
 
 const nameGen = require('./util/nameGen')
@@ -10,7 +12,11 @@ const EXTENSIONS = ['.fig', '.pug']
 module.exports = file => {
 	const parsed = path.parse(file)
 	const extension = parsed.ext
-	const baseName = parsed.name
+	const fileName = parsed.name
+	const baseName = parsed.base
+	const dirName = parsed.dir
+
+	const genSourceMaps = true // TODO
 
 	if (EXTENSIONS.indexOf(extension) === -1) return through()
 
@@ -64,7 +70,7 @@ module.exports = file => {
 		this.push(transformed.code)
 
 		// name
-		this.push(genExport('name', nameGen(baseName)))
+		this.push(genExport('name', nameGen(fileName)))
 
 		next()
 	})
