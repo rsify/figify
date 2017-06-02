@@ -16,8 +16,6 @@ module.exports = file => {
 	const baseName = parsed.base
 	const dirName = parsed.dir
 
-	const genSourceMaps = true // TODO
-
 	if (EXTENSIONS.indexOf(extension) === -1) return through()
 
 	return through(function (buf, enc, next) {
