@@ -11,5 +11,8 @@
   "license": "MIT",
   "devDependencies": {
     "tape": "^4.6.3"
+  },
+  "scripts": {
+    "test": "tape test/*"
   }
 }

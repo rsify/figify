@@ -1,5 +1,5 @@
 const test = require('tape')
-const nameGen = require('../../util/nameGen')
+const nameGen = require('../util/nameGen')
 
 test('converts one dash', (t) => {
 	const names = ['coolName', 'CoolName', 'cool-Name', 'cool-name', 'Cool-name']
