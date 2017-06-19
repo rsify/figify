@@ -1,8 +1,6 @@
 {
   "dependencies": {
-    "babel-core": "^6.24.1",
-    "babel-preset-es2015": "^6.24.1",
-    "pug": "^2.0.0-rc.1",
+    "fig-compiler": "^0.0.0",
     "through2": "^2.0.3"
   },
   "name": "figify",
