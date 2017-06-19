@@ -23,7 +23,7 @@ module.exports = file => {
 		})
 
 		const exported = (name, str, quoted = true) => {
-			const p = 'module.exporteds.' + name + '='
+			const p = 'module.exports.' + name + '='
 			if (str === null) return p + 'null;'
 			else if (quoted) {
 				const val = str.split('\n')
@@ -34,8 +34,7 @@ module.exports = file => {
 			else return p + str + ';'
 		}
 
-		this.push(compiled.template)
-		this.push(exported('template', 'template\n', false))
+		this.push(exported('template', compiled.template.toString(), false))
 		this.push(exported('style', compiled.style))
 		this.push(exported('name', compiled.name))
 		this.push(compiled.script)
