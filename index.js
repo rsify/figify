@@ -1,3 +1,4 @@
+const babel = require('babel-core')
 const compiler = require('fig-compiler')
 const path = require('path')
 const through = require('through2')
@@ -37,7 +38,9 @@ module.exports = file => {
 		this.push(exported('template', compiled.template.toString(), false))
 		this.push(exported('style', compiled.style))
 		this.push(exported('name', compiled.name))
-		this.push(compiled.script)
+		this.push(babel.transform(compiled.script, {
+			presets: require('babel-preset-es2015')
+		}).code)
 
 		next()
 	})
