@@ -12,9 +12,11 @@
   "author": "nikersify <nikersify@nikerino.com>",
   "license": "MIT",
   "devDependencies": {
-    "tape": "^4.6.3"
+    "ava": "^0.19.1",
+    "browserify": "^14.4.0",
+    "jsdom": "^11.0.0"
   },
   "scripts": {
-    "test": "tape test/*"
+    "test": "ava"
   }
 }

@@ -1,0 +1,10 @@
+template
+	h1= heck
+
+style
+	h1 { color: pink; }
+
+script
+	export default (view, opts, bus) => {
+		view.heck = 'amazing'
+	}

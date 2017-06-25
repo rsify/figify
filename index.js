@@ -3,7 +3,7 @@ const compiler = require('fig-compiler')
 const path = require('path')
 const through = require('through2')
 
-const nameGen = require('./util/nameGen')
+const nameGen = require('./util/name-gen')
 
 const EXTENSIONS = ['.fig', '.pug']
 
@@ -24,15 +24,15 @@ module.exports = file => {
 		})
 
 		const exported = (name, str, quoted = true) => {
-			const p = 'module.exports.' + name + '='
+			const p = 'module.exports.' + name + ' = '
 			if (str === null) return p + 'null;'
 			else if (quoted) {
 				const val = str.split('\n')
 					.map(x => ('\'' + x + '\''))
 					.join('+\n')
-				return p + val + ';'
+				return p + val + ';\n'
 			}
-			else return p + str + ';'
+			else return p + str + ';\n'
 		}
 
 		this.push(exported('template', compiled.template.toString(), false))
