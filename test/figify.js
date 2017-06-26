@@ -1,9 +1,11 @@
-import figify from '../'
 import fs from 'fs'
 import path from 'path'
+import vm from 'vm'
+
 import test from 'ava'
 import through from 'through2'
-import vm from 'vm'
+
+import figify from '../'
 
 test.cb(t => {
 	const p = path.resolve(__dirname, 'fixture/CoolCat.fig')
@@ -29,7 +31,7 @@ test.cb(t => {
 			script.runInContext(vm.createContext(sandbox))
 
 			t.is(sandbox.exports.name, 'cool-cat')
-			t.is(sandbox.exports.template({ heck: 42 }), '<h1>42</h1>')
+			t.is(sandbox.exports.template({heck: 42}), '<h1>42</h1>')
 			t.is(sandbox.exports.style, 'h1 { color: pink; }')
 			t.is(typeof sandbox.exports.default, 'function')
 

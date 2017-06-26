@@ -1,8 +1,10 @@
-import browserify from 'browserify'
-import figify from '../'
-import { JSDOM } from 'jsdom'
 import path from 'path'
+
+import browserify from 'browserify'
 import test from 'ava'
+import {JSDOM} from 'jsdom'
+
+import figify from '../'
 
 test.cb(t => {
 	const p = path.resolve(__dirname, 'fixture')
@@ -17,7 +19,7 @@ test.cb(t => {
 			t.not(buf, null)
 
 			const bundle = buf.toString()
-			const { window } = new JSDOM(``, { runScripts: 'dangerously' })
+			const {window} = new JSDOM(``, {runScripts: 'dangerously'})
 			const document = window.document
 
 			const $el = document.createElement('script')
@@ -26,7 +28,7 @@ test.cb(t => {
 
 			const comp = window.component
 			t.is(comp.name, 'cool-cat')
-			t.is(comp.template({ heck: 42 }), '<h1>42</h1>')
+			t.is(comp.template({heck: 42}), '<h1>42</h1>')
 			t.is(comp.style, 'h1 { color: pink; }')
 			t.is(typeof comp.default, 'function')
 

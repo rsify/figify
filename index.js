@@ -1,6 +1,7 @@
+const path = require('path')
+
 const babel = require('babel-core')
 const compiler = require('fig-compiler')
-const path = require('path')
 const through = require('through2')
 
 const nameGen = require('./util/name-gen')
@@ -11,28 +12,29 @@ module.exports = file => {
 	const parsed = path.parse(file)
 	const extension = parsed.ext
 	const fileName = parsed.name
-	const baseName = parsed.base
-	const dirName = parsed.dir
 
-	if (EXTENSIONS.indexOf(extension) === -1) return through()
+	if (EXTENSIONS.indexOf(extension) === -1) {
+		return through()
+	}
 
 	return through(function (buf, enc, next) {
 		const contents = buf.toString('utf8')
-
 		const compiled = compiler(contents, {
 			defaultName: nameGen(fileName)
 		})
 
 		const exported = (name, str, quoted = true) => {
 			const p = 'module.exports.' + name + ' = '
-			if (str === null) return p + 'null;'
-			else if (quoted) {
+
+			if (str === null) {
+				return p + 'null;'
+			} else if (quoted) {
 				const val = str.split('\n')
 					.map(x => ('\'' + x + '\''))
 					.join('+\n')
 				return p + val + ';\n'
 			}
-			else return p + str + ';\n'
+			return p + str + ';\n'
 		}
 
 		this.push(exported('template', compiled.template.toString(), false))

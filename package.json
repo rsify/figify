@@ -14,9 +14,13 @@
   "devDependencies": {
     "ava": "^0.19.1",
     "browserify": "^14.4.0",
-    "jsdom": "^11.0.0"
+    "jsdom": "^11.0.0",
+    "xo": "^0.18.2"
   },
   "scripts": {
-    "test": "ava"
+    "test": "xo && ava"
+  },
+  "xo": {
+    "semicolon": false
   }
 }
