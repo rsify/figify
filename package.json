@@ -1,11 +1,11 @@
 {
+  "name": "figify",
+  "version": "0.0.0",
+  "description": "fig.js browserify transform",
   "dependencies": {
     "fig-compiler": "^0.0.0",
     "through2": "^2.0.3"
   },
-  "name": "figify",
-  "version": "0.0.0",
-  "description": "browserify transform for fig framework",
   "main": "index.js",
   "author": "nikersify <nikersify@nikerino.com>",
   "license": "MIT",
