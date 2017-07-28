@@ -1,6 +1,6 @@
 {
   "name": "figify",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "fig.js browserify transform",
   "dependencies": {
     "fig-compiler": "^0.0.1",
