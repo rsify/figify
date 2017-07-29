@@ -21,6 +21,6 @@ test('converts long names', t => {
 	t.is(nameGen('thisIs-aVeryLong-Name-withMixedThings'),
 		'this-is-a-very-long-name-with-mixed-things')
 
-	t.is(nameGen('Another-incredibleNameThat-needs-toBeSplitted'),
-		'another-incredible-name-that-needs-to-be-splitted')
+	t.is(nameGen('Another-incredibleNameThat-needs-toBeSplit'),
+		'another-incredible-name-that-needs-to-be-split')
 })

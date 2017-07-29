@@ -7,12 +7,12 @@ import {JSDOM} from 'jsdom'
 import figify from '../'
 
 test.cb(t => {
-	const p = path.resolve(__dirname, 'fixture')
+	const p = path.resolve(__dirname, 'fixtures')
 	const opts = {
 		basedir: p
 	}
 
-	browserify(p + '/_app.js', opts)
+	browserify(p + '/app.js', opts)
 		.transform(figify)
 		.bundle((err, buf) => {
 			t.is(err, null)

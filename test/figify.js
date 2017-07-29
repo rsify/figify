@@ -8,7 +8,7 @@ import through from 'through2'
 import figify from '../'
 
 test.cb(t => {
-	const p = path.resolve(__dirname, 'fixture/CoolCat.fig')
+	const p = path.resolve(__dirname, 'fixtures/CoolCat.fig')
 
 	const collector = []
 	fs.createReadStream(p)
