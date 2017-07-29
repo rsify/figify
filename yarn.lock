@@ -1983,9 +1983,9 @@ fast-levenshtein@~2.0.4:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
 
-fig-compiler@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/fig-compiler/-/fig-compiler-0.0.1.tgz#3ec9ba97a9b6a56a39c791d0e432582c5cd53fd8"
+fig-compiler@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/fig-compiler/-/fig-compiler-0.1.0.tgz#463b6c48a2e4cca1ae1d0e37d6d9a7b13683fef6"
   dependencies:
     babel-preset-es2015 "^6.24.1"
     pug "^2.0.0-rc.2"
