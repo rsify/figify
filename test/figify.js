@@ -31,7 +31,8 @@ test.cb(t => {
 			script.runInContext(vm.createContext(sandbox))
 
 			t.is(sandbox.exports.name, 'cool-cat')
-			t.is(sandbox.exports.template({heck: 42}), '<h1>42</h1>')
+			t.is(sandbox.exports.template({heck: 42}),
+				'<div class="mixed">42</div><h1>42</h1>')
 			t.is(sandbox.exports.style, 'h1 { color: pink; }')
 			t.is(typeof sandbox.exports.default, 'function')
 

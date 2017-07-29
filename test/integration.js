@@ -28,7 +28,8 @@ test.cb(t => {
 
 			const comp = window.component
 			t.is(comp.name, 'cool-cat')
-			t.is(comp.template({heck: 42}), '<h1>42</h1>')
+			t.is(comp.template({heck: 42}),
+				'<div class="mixed">42</div><h1>42</h1>')
 			t.is(comp.style, 'h1 { color: pink; }')
 			t.is(typeof comp.default, 'function')
 

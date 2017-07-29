@@ -1,4 +1,7 @@
 template
+	include mixin.pug
+	+mix(42)
+
 	h1= heck
 
 style

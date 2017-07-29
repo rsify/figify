@@ -19,7 +19,8 @@ module.exports = file => {
 	return through(function (buf, enc, next) {
 		const contents = buf.toString('utf8')
 		const compiled = compiler(contents, {
-			defaultName: nameGen(fileName)
+			defaultName: nameGen(fileName),
+			filePath: file
 		})
 
 		const exported = (name, str, quoted = true) => {
