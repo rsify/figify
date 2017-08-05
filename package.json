@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "fig.js browserify transform",
   "dependencies": {
-    "fig-compiler": "^0.2.0",
+    "fig-compiler": "^0.2.1",
     "through2": "^2.0.3"
   },
   "main": "index.js",
