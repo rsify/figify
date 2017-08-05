@@ -2,7 +2,7 @@
 > [fig.js](http://github.com/nikersify/fig) browserify transform
 
 [![npm](https://img.shields.io/npm/v/figify.svg)](https://www.npmjs.com/package/figify)
-[![travis](https://travis-ci.org/Nikersify/figify.svg?branch=master)](https://travis-ci.org/Nikersify/figify)
+[![travis](https://travis-ci.org/nikersify/figify.svg?branch=master)](https://travis-ci.org/nikersify/figify)
 
 # introduction
 
