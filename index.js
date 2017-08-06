@@ -16,12 +16,24 @@ module.exports = file => {
 		return through()
 	}
 
-	return through(function (buf, enc, next) {
-		const contents = buf.toString('utf8')
-		const compiled = compiler(contents, {
-			defaultName: nameGen(fileName),
-			filePath: file
-		})
+	const chunks = []
+	const transform = (chunk, encoding, callback) => {
+		chunks.push(chunk)
+		callback()
+	}
+
+	const flush = function (callback) {
+		const contents = Buffer.concat(chunks).toString()
+
+		let compiled
+		try {
+			compiled = compiler(contents, {
+				defaultName: nameGen(fileName),
+				filePath: file
+			})
+		} catch (err) {
+			return callback(err)
+		}
 
 		const exported = (name, str, quoted = true) => {
 			const p = 'module.exports.' + name + ' = '
@@ -42,6 +54,8 @@ module.exports = file => {
 		this.push(exported('name', compiled.name))
 		this.push(compiled.script)
 
-		next()
-	})
+		callback()
+	}
+
+	return through(transform, flush)
 }
