@@ -41,7 +41,7 @@ module.exports = file => {
 			if (str === null) {
 				return p + 'null;'
 			} else if (quoted) {
-				const val = str.split('\n')
+				const val = str.split(/\r?\n/)
 					.map(x => ('\'' + x + '\''))
 					.join('+\n')
 				return p + val + ';\n'
